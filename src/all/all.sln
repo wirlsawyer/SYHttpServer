@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SYHttpServer", "..\SYHttpServer\SYHttpServer\SYHttpServer.vcproj", "{49C68D11-537A-47DD-BED8-7B0F54FEC136}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SYHttpServerDemo", "..\SYHttpServerDemo\SYHttpServerDemo\SYHttpServerDemo.vcproj", "{ACA95FC4-8AEA-49D6-909F-703626F60692}"
+	ProjectSection(ProjectDependencies) = postProject
+		{49C68D11-537A-47DD-BED8-7B0F54FEC136} = {49C68D11-537A-47DD-BED8-7B0F54FEC136}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49C68D11-537A-47DD-BED8-7B0F54FEC136}.Debug|Win32.ActiveCfg = Debug|Win32
+		{49C68D11-537A-47DD-BED8-7B0F54FEC136}.Debug|Win32.Build.0 = Debug|Win32
+		{49C68D11-537A-47DD-BED8-7B0F54FEC136}.Release|Win32.ActiveCfg = Release|Win32
+		{49C68D11-537A-47DD-BED8-7B0F54FEC136}.Release|Win32.Build.0 = Release|Win32
+		{ACA95FC4-8AEA-49D6-909F-703626F60692}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ACA95FC4-8AEA-49D6-909F-703626F60692}.Debug|Win32.Build.0 = Debug|Win32
+		{ACA95FC4-8AEA-49D6-909F-703626F60692}.Release|Win32.ActiveCfg = Release|Win32
+		{ACA95FC4-8AEA-49D6-909F-703626F60692}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+LIBRARY	"SYHttpServer"
+
+EXPORTS
+		TestAdd					@1
+		InitServerWithPort		@2
+		GetOnlineClient			@3
+		AddShareWithFilePath	@4
+		RemoveShareWithFilePath	@5

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SYHttpServerDemo", "SYHttpServerDemo\SYHttpServerDemo.vcproj", "{ACA95FC4-8AEA-49D6-909F-703626F60692}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACA95FC4-8AEA-49D6-909F-703626F60692}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ACA95FC4-8AEA-49D6-909F-703626F60692}.Debug|Win32.Build.0 = Debug|Win32
+		{ACA95FC4-8AEA-49D6-909F-703626F60692}.Release|Win32.ActiveCfg = Release|Win32
+		{ACA95FC4-8AEA-49D6-909F-703626F60692}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
