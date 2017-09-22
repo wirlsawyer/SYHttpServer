@@ -304,6 +304,8 @@ void RFC2616SendRawDataWithPort(USHORT port, std::wstring StrPath, std::wstring 
 	download+= vbCrLf;
 	download+= "Content-type: application/octet-stream";
 	download+= vbCrLf;
+	download+= "Access-Control-Allow-Origin:*"; //add CORS policy 
+	download+= vbCrLf;
 
 	if (StartPos == 0)
 	{
