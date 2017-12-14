@@ -294,15 +294,45 @@ int WINAPI TestAdd(int a, int b)
 void RFC2616SendRawDataWithPort(USHORT port, std::wstring StrPath, std::wstring StrRequestPage, int StartPos = 0)
 {
 	char *szData= NULL;
-	const long size = GetFileSize(StrPath);
+	long size = GetFileSize(StrPath);
 	bool bFileExist = (size==0?false:true);
 	
+	bool IsPhaserDate = (StrRequestPage.find(L".dat") != std::string::npos);
+	if (IsPhaserDate)
+	{
 
+		LoadFile(StrPath, &szData, 0, 1);
+		size = size - (int)szData[0];
+		free(szData);
+		szData = NULL; 
+	}
 	SOCKET socket = g_pServerSocket->GetSocketWithPort(port);		
 
 	std::string download = "HTTP/1.1 200 Ok";
 	download+= vbCrLf;
-	download+= "Content-type: application/octet-stream";
+	
+	if (StrRequestPage.find(L".html") != std::string::npos)
+	{
+		download += "Content-type: text/html";
+	}
+	else if (StrRequestPage.find(L".htm") != std::string::npos)
+	{
+		download += "Content-type: text/html";
+	}
+	else if (StrRequestPage.find(L".js") != std::string::npos)
+	{
+		download += "Content-type: application/javascript";
+	}
+	else if (StrRequestPage.find(L".css") != std::string::npos)
+	{ 
+		download += "Content-type: text/css";
+	}
+	else 
+	{
+		download += "Content-type: application/octet-stream";
+	}
+	
+	
 	download+= vbCrLf;
 	download+= "Access-Control-Allow-Origin:*"; //add CORS policy 
 	download+= vbCrLf;
@@ -328,7 +358,8 @@ void RFC2616SendRawDataWithPort(USHORT port, std::wstring StrPath, std::wstring 
 	download+= SYSERVER_NAME;
 	download+= vbCrLf;
 	download+= "Content-Disposition: inline;  filename=\"";
-	download+= ws2s(StrRequestPage);
+	download+= ws2s(StrRequestPage); 
+
 	download+= "\""; 
 	download+= vbCrLf;
 	download+= vbCrLf;
@@ -346,7 +377,17 @@ void RFC2616SendRawDataWithPort(USHORT port, std::wstring StrPath, std::wstring 
 		{			
 			long data_len;
 			data_len = LoadFile(StrPath, &szData, StartPos+i*BUFFER_STREAM, BUFFER_STREAM);			
-			iResult = send(socket, (const char *)szData, data_len, 0); 
+
+			if (IsPhaserDate)
+			{
+				int pos = szData[0];
+				//pos = 0;
+				iResult = send(socket, (const char *)(szData+pos), data_len - pos, 0);
+			}
+			else
+			{
+				iResult = send(socket, (const char *)szData, data_len, 0);
+			}
 			free(szData);
 			szData = NULL;
 		}
